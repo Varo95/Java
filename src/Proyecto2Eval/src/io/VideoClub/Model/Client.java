@@ -6,13 +6,14 @@
 package io.VideoClub.Model;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
  *
  * @author Alvaro
  */
-public class Client implements IClient, Comparable<Client> {
+public class Client implements IClient {
 
     private String ID;
     private String name;
@@ -25,8 +26,8 @@ public class Client implements IClient, Comparable<Client> {
         this.phone = phone;
         this.time = LocalDateTime.now();
     }
-    
-    public String generateID(){
+
+    public String generateID() {
         String UID = UUID.randomUUID().toString();
         return UID;
     }
@@ -67,17 +68,21 @@ public class Client implements IClient, Comparable<Client> {
     }
 
     @Override
-    public int compareTo(Client o) {
-        int result = 0;
-        if(!o.equals(this)){
-            if(o instanceof Client){
-                Client aux = (Client)o;
-                if(!aux.ID.equals(this.ID)){
-                    result = 1;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else {
+            if (obj == null) {
+                return false;
+            } else if (obj instanceof Client) {
+                final Client other = (Client) obj;
+                if (!Objects.equals(this.ID, other.ID)) {
+                    return false;
                 }
             }
         }
-        return result;
+
+        return true;
     }
 
 }
