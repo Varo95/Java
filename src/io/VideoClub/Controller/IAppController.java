@@ -1,4 +1,4 @@
- package io.VideoClub.Controller;
+package io.VideoClub.Controller;
 
 import io.VideoClub.Model.Enums.GameCategory;
 import io.VideoClub.Model.IClient;
