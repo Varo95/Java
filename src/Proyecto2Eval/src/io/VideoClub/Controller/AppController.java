@@ -235,7 +235,7 @@ public class AppController implements IAppController {
 
     @Override
     public Set<IClient> listAllClients() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

@@ -1,14 +1,6 @@
 package io.VideoClub.View;
 
 import io.VideoClub.Controller.AppController;
-import io.VideoClub.Model.Enums.GameCategory;
-import io.VideoClub.Model.Enums.MovieCategory;
-import io.VideoClub.Model.Enums.ProductsTypes;
-import io.VideoClub.Model.Product;
-import io.VideoClub.Model.Reservation;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
 import utils.UIUtilities;
 
 public class GUI {
