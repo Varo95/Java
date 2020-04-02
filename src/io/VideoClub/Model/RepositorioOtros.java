@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author ANDREA
  */
-public class RepositorioOtros extends HashSet<Otros> {
+public class RepositorioOtros extends HashSet<Other> {
     private static RepositorioOtros instance;
     private RepositorioOtros(){};
     
@@ -28,21 +28,21 @@ public class RepositorioOtros extends HashSet<Otros> {
     @Override
     public String toString() {
         String result= "-----REPOSITORIO-----\n";
-        for(Otros o:instance){
+        for(Other o:instance){
             result+="> "+o+"\n";
                     
         }
         return result;
     }
     
-    public List<Otros> filter(String regularEspression){
-        List<Otros> otros=new ArrayList<>();
+    public List<Other> filter(String regularEspression){
+        List<Other> otros=new ArrayList<>();
         return otros;
         
     }
     
     public void save(){
-        List<Otros> l=new ArrayList<>();
+        List<Other> l=new ArrayList<>();
         l.addAll(this);
         //XMLManager.writeList_into_XML(l, "games.XML");
     }

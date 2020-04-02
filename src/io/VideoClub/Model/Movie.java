@@ -5,17 +5,121 @@
  */
 package io.VideoClub.Model;
 
+import io.VideoClub.Model.Enums.MovieCategory;
+import io.VideoClub.Model.Enums.ProductsTypes;
+import java.util.Objects;
+
 /**
  *
  * @author ANDREA
  */
 public class Movie extends Product implements Cloneable {
 
-    public Movie() {
+    private MovieCategory category;
+    private int minAge;
+
+    public Movie(String name, String description, double prize, Status status, MovieCategory category) {
+        super(name, description, prize, status, ProductsTypes.Peliculas);
+        this.category = category;
     }
 
-    public Movie(String name, String description, double prize) {
-        super(name, description, prize);
+    public Movie(MovieCategory category, int minAge, String name, String description, double prize, Status status, ProductsTypes type) {
+        super(name, description, prize, status, type);
+        this.category = category;
+        this.minAge = minAge;
+    }
+
+    public Movie(MovieCategory category, String key, Status status, ProductsTypes type, String name, String description, double prize, int minAge) {
+        super(key, status, type, name, description, prize);
+        this.category = category;
+        this.minAge = minAge;
+    }
+
+    public int getMinAge() {
+        return minAge;
+    }
+
+    public void setMinAge(int minAge) {
+        this.minAge = minAge;
+    }
+
+    public MovieCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(MovieCategory category) {
+        this.category = category;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public double getPrize() {
+        return prize;
+    }
+
+    @Override
+    public void setPrize(double prize) {
+        this.prize = prize;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" + "category=" + category + ", minAge=" + minAge + '}';
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Movie other = (Movie) obj;
+        if (this.minAge != other.minAge) {
+            return false;
+        }
+        if (!Objects.equals(this.category, other.category)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
     
 }

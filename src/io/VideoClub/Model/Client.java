@@ -21,25 +21,35 @@ public class Client implements IClient {
     private LocalDateTime time;
 
     public Client(String name, String phone) {
-        this.ID = generateID();
         this.name = name;
         this.phone = phone;
+        this.ID = GenerateId();
         this.time = LocalDateTime.now();
     }
 
-    public String generateID() {
-        String UID = UUID.randomUUID().toString();
-        return UID;
+    public Client(String ID, String name, String phone, LocalDateTime time) {
+        this.ID = ID;
+        this.name = name;
+        this.phone = phone;
+        this.time = time;
+    }
+
+    private Client() {
+    }
+
+    public String GenerateId() {
+        String IdResult = (String) UUID.randomUUID().toString().subSequence(0, 16);
+        return IdResult;
     }
 
     @Override
     public String getID() {
-        return ID;
+        return this.ID;
     }
 
     @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     @Override
@@ -49,7 +59,7 @@ public class Client implements IClient {
 
     @Override
     public LocalDateTime getTime() {
-        return time;
+        return this.time;
     }
 
     @Override
@@ -59,7 +69,7 @@ public class Client implements IClient {
 
     @Override
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     @Override
@@ -67,22 +77,38 @@ public class Client implements IClient {
         this.phone = p;
     }
 
+    public void setRemoved() {
+        this.ID = "DELETED";
+        this.name = "DELETED";
+        this.phone = "";
+        this.time = LocalDateTime.MIN;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
-        } else {
-            if (obj == null) {
-                return false;
-            } else if (obj instanceof Client) {
-                final Client other = (Client) obj;
-                if (!Objects.equals(this.ID, other.ID)) {
-                    return false;
-                }
-            }
         }
-
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Client other = (Client) obj;
+        if (!Objects.equals(this.ID, other.ID)) {
+            return false;
+        }
         return true;
+    }
+
+    public int compareTo(IClient o){
+        return this.getID().compareTo(o.getID());
+    }
+
+    @Override
+    public String toString() {
+        return "iD=" + ID + " name=" + name + " phone=" + phone + " fecha de nacimiento=" + time.getYear() + "/" + time.getMonthValue() + "/" + time.getDayOfMonth();
     }
 
 }
