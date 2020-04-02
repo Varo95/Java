@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import utils.UIUtilities;
 
 /**
  *
@@ -164,10 +165,10 @@ public class AppController implements IAppController {
 
     @Override
     public Map<Product, Integer> listAllAmountOfProducts(String name) {
-        Set<Product> datos = Data.getInstance().getProducts();
+        Set<Product> data = Data.getInstance().getProducts();
         int count = 0;
         Product producto = null;
-        for(Product p : datos){
+        for(Product p : data){
             if(p.getName().equals(name)){
                 producto = p;
                 count++;
@@ -180,10 +181,10 @@ public class AppController implements IAppController {
 
     @Override
     public Map<Product, Integer> listAllAmountOfProducts(ProductsTypes type, String name) {
-        Set<Product> datos = Data.getInstance().getProducts();
+        Set<Product> data = Data.getInstance().getProducts();
         int count = 0;
         Product producto = null;
-        for(Product p : datos){
+        for(Product p : data){
             if(p.getName().equals(name) && p.getType().equals(type)){
                 producto = p;
                 count++;
@@ -284,6 +285,16 @@ public class AppController implements IAppController {
         }
 
         return aux;
+    }   
+
+    @Override
+    public double getIncommings() {
+        Set<Reservation> reservations = Data.getInstance().getReservations();
+        double totalIncommings = 0;
+        for(Reservation r : reservations){
+            totalIncommings += r.getIncome();
+        }
+        return totalIncommings;
     }
 
     @Override
@@ -317,7 +328,23 @@ public class AppController implements IAppController {
 
     @Override
     public Map<IClient, Double> resumeAllIncomingsByClient() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Set<Reservation> reservations = Data.getInstance().getReservations();
+        Set<IClient> clients = Data.getInstance().getClients();
+        System.out.println("Introduzca el ID del cliente, gracias");
+        String id = UIUtilities.getString();
+        double totalAmount =0;
+        IClient aux = null;
+        for(Reservation r : reservations){
+            for(IClient c : clients){
+                if(c.getID().equals(id) && r.cli.equals(c)){
+                    aux = c;
+                    totalAmount += r.getIncome();
+                }
+            }
+        }
+        Map<IClient, Double> result = new HashMap<>();
+        result.put(aux, totalAmount);
+        return result;
     }
 
   @Override
@@ -664,11 +691,6 @@ public class AppController implements IAppController {
 
     @Override
     public boolean saveAllDDBB() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double getIncommings() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
