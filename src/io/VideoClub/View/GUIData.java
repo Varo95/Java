@@ -33,4 +33,9 @@ public class GUIData {
             GUIReservation.Show(reservation);
         });
     }
+    
+    public static void ItemToScreen(Map<Product, Integer> s){
+        System.out.println(""+ s);
+    }
+    
    }

@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -163,12 +164,34 @@ public class AppController implements IAppController {
 
     @Override
     public Map<Product, Integer> listAllAmountOfProducts(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Set<Product> datos = Data.getInstance().getProducts();
+        int count = 0;
+        Product producto = null;
+        for(Product p : datos){
+            if(p.getName().equals(name)){
+                producto = p;
+                count++;
+            }
+        }
+        Map<Product, Integer> result = new HashMap<>();
+        result.put(producto, count);
+        return result;
     }
 
     @Override
     public Map<Product, Integer> listAllAmountOfProducts(ProductsTypes type, String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Set<Product> datos = Data.getInstance().getProducts();
+        int count = 0;
+        Product producto = null;
+        for(Product p : datos){
+            if(p.getName().equals(name) && p.getType().equals(type)){
+                producto = p;
+                count++;
+            }
+        }
+        Map<Product, Integer> result = new HashMap<>();
+        result.put(producto, count);
+        return result;
     }
 
     @Override
