@@ -108,7 +108,7 @@ public class Client implements IClient {
 
     @Override
     public String toString() {
-        return "iD=" + ID + " name=" + name + " phone=" + phone + " fecha de nacimiento=" + time.getYear() + "/" + time.getMonthValue() + "/" + time.getDayOfMonth();
+        return "iD=" + ID + " name=" + name + " phone=" + phone + " fecha de registro=" + time.getYear() + "/" + time.getMonthValue() + "/" + time.getDayOfMonth();
     }
 
 }
