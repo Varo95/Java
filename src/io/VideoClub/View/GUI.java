@@ -4,27 +4,29 @@ import io.VideoClub.Controller.AppController;
 import io.VideoClub.Model.Client;
 import io.VideoClub.Model.Enums.ProductsTypes;
 import io.VideoClub.Model.NameComparator;
+import io.VideoClub.Model.Product;
 import io.VideoClub.Model.Reservation;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Comparator;
+
 public class GUI {
 
     static AppController controlador = new AppController();
 
     public static void principal() {
         int option;
-        do{
-        System.out.println("Bienvenido al menú del videoclub");
-        System.out.println("--------------------------------");
-        System.out.println("| 1) Gestionar los clientes    |");
-        System.out.println("| 2) Gestionar los productos   |");
-        System.out.println("| 3) Gestionar las reservas    |");
-        System.out.println("| 4) Salir de la aplicación    |");
-        System.out.println("--------------------------------");
-        
+        do {
+            System.out.println("Bienvenido al menú del videoclub");
+            System.out.println("--------------------------------");
+            System.out.println("| 1) Gestionar los clientes    |");
+            System.out.println("| 2) Gestionar los productos   |");
+            System.out.println("| 3) Gestionar las reservas    |");
+            System.out.println("| 4) Salir de la aplicación    |");
+            System.out.println("--------------------------------");
+
             option = UIUtilities.getInt();
-            switch(option){
+            switch (option) {
                 case 1:
                     GClients();
                     break;
@@ -41,53 +43,53 @@ public class GUI {
                 default:
                     System.out.println("Inserte una opción válida, gracias");
             }
-        }while(option!=4);
+        } while (option != 4);
     }
-    
-    public static void GClients(){
+
+    public static void GClients() {
         int optionGC;
-        do{
-        System.out.println("Bienvenido al menú de gestion de clientes");
-        System.out.println("-----------------------------------------");
-        System.out.println("| 1) Añadir nuevo cliente               |");
-        System.out.println("| 2) Editar cliente existente           |");
-        System.out.println("| 3) Eliminar un cliente                |");
-        System.out.println("| 4) Buscar un cliente                  |");
-        System.out.println("| 5) Listar clientes                    |");
-        System.out.println("| 6) Historial de reservas de clientes  |");
-        System.out.println("| 7) volver al menú de inicio           |");
-        System.out.println("-----------------------------------------");
-        optionGC=UIUtilities.getInt();
-        switch(optionGC){
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                
-                break;
-            case 4:
-                
-                break;
-            case 5:
-                
-                break;
-            case 6:
-                
-                break;
-            case 7:
-                break;
-            default:
-                System.out.println("Inserte una opción válida, gracias");
-        }
-        }while(optionGC!=7);
+        do {
+            System.out.println("Bienvenido al menú de gestion de clientes");
+            System.out.println("-----------------------------------------");
+            System.out.println("| 1) Añadir nuevo cliente               |");
+            System.out.println("| 2) Editar cliente existente           |");
+            System.out.println("| 3) Eliminar un cliente                |");
+            System.out.println("| 4) Buscar un cliente                  |");
+            System.out.println("| 5) Listar clientes                    |");
+            System.out.println("| 6) Historial de reservas de clientes  |");
+            System.out.println("| 7) volver al menú de inicio           |");
+            System.out.println("-----------------------------------------");
+            optionGC = UIUtilities.getInt();
+            switch (optionGC) {
+                case 1:
+                    registrarCliente();
+                    break;
+                case 2:
+                    editCliente();
+                    break;
+                case 3:
+                    eliminarcliente();
+                    break;
+                case 4:
+                    buscarclient();
+                    break;
+                case 5:
+                    listarcliente();
+                    break;
+                case 6:
+                    historialclient();
+                    break;
+                case 7:
+                    break;
+                default:
+                    System.out.println("Inserte una opción válida, gracias");
+            }
+        } while (optionGC != 7);
     }
-    
-    public static void GProducts(){
+
+    public static void GProducts() {
         int optionGP;
-        do{
+        do {
             System.out.println("Bienvenido al menu de gestión de productos");
             System.out.println("------------------------------------------");
             System.out.println("| 1) Registrar un producto               |");
@@ -95,28 +97,28 @@ public class GUI {
             System.out.println("| 3) Eliminar un producto existente      |");
             System.out.println("|4) volver al menú de inicio             |");
             System.out.println("------------------------------------------");
-            optionGP=UIUtilities.getInt();
-            switch(optionGP){
+            optionGP = UIUtilities.getInt();
+            switch (optionGP) {
                 case 1:
-                    
+                    anyadirProducto();
                     break;
                 case 2:
-                    
+                    listProduct();
                     break;
                 case 3:
-                    
+                    eliminarproducto();
                     break;
                 case 4:
                     break;
                 default:
                     System.out.println("Inserte una opción válida, gracias");
             }
-        }while(optionGP!=4);
+        } while (optionGP != 4);
     }
-    
-    public static void GReservations(){
+
+    public static void GReservations() {
         int optionGR;
-        do{
+        do {
             System.out.println("Bienvenido al menu de gestión de reservas");
             System.out.println("-----------------------------------------");
             System.out.println("| 1) Listar las reservas                |");
@@ -125,29 +127,28 @@ public class GUI {
             System.out.println("| 4) Editar reserva existente           |");
             System.out.println("| 5) volver al menú de inicio           |");
             System.out.println("-----------------------------------------");
-            optionGR=UIUtilities.getInt();
-            switch(optionGR){
+            optionGR = UIUtilities.getInt();
+            switch (optionGR) {
                 case 1:
-                    
+                    listarreserva();
                     break;
                 case 2:
-                    
+                    historialReservas();
                     break;
                 case 3:
-                    
+                    newReservation();
                     break;
                 case 4:
-                    
+                    editReservation();
                     break;
                 case 5:
                     break;
                 default:
                     System.out.println("Inserte una opción válida, gracias");
             }
-        }while(optionGR!=5);
+        } while (optionGR != 5);
     }
-       
-    
+
     public static void registrarCliente() {
         String name = UIUtilities.getString("introduzca nombre");
         String phone = UIUtilities.getString("introduzca telefono");
@@ -300,7 +301,164 @@ public class GUI {
             }
         } while (tipo <= 0 || tipo > 3);
     }
-    
+
+    public static void listProduct() {
+        String name;
+        int tipo;
+        int options;
+        System.out.println("1.- listar todos los productos");
+        System.out.println("2.- listar productos comparados entre sí");
+        System.out.println("3.- Listar productos por tipo");
+        System.out.println("4.- listar productos por nombre");
+        System.out.println("5.- listar productos por nombre y tipo");
+        System.out.println("6.- listar productos por estado de reserva");
+        System.out.println("7.- listar productos diferentes");
+        System.out.println("8.- listar todos los productos con el mismo nombre");
+        System.out.println("9.- atras");
+
+        options = UIUtilities.getInt();
+
+        switch (options) {
+
+            case 1:
+                UIUtilities.clearScreen();
+                GUIData.ItemToScreen(controlador.listAllProducts());
+                break;
+
+            case 2:
+                UIUtilities.clearScreen();
+                Comparator c = new NameComparator();
+                GUIData.ItemToScreen(controlador.listAllProducts(c));
+                break;
+
+            case 3:
+                UIUtilities.clearScreen();
+                System.out.println("¿Qué tipo de productos desea mostrar?");
+                System.out.println("1.- Peliculas");
+                System.out.println("2.- Juegos");
+                System.out.println("3.- Otros");
+                System.out.println("4.- Atrás");
+                tipo = UIUtilities.getInt();
+                switch (tipo) {
+                    case 1:
+                        GUIData.ItemToScreen(controlador.listAllByType(ProductsTypes.Peliculas));
+                        break;
+                    case 2:
+                        GUIData.ItemToScreen(controlador.listAllByType(ProductsTypes.Juegos));
+                        break;
+                    case 3:
+                        GUIData.ItemToScreen(controlador.listAllByType(ProductsTypes.Otros));
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        System.out.println("Elija una opción válida, gracias");
+                }
+                break;
+            case 4:
+                UIUtilities.clearScreen();
+                name = UIUtilities.getString("Dime el nombre del producto a buscar");
+                GUIData.ItemToScreen(controlador.listAllByName(name));
+                break;
+            case 5:
+                UIUtilities.clearScreen();
+                name = UIUtilities.getString("Dime el nombre del producto a buscar");
+                System.out.println("¿Qué tipo de productos desea mostrar?");
+                System.out.println("1.- Peliculas");
+                System.out.println("2.- Juegos");
+                System.out.println("3.- Otros");
+                tipo = UIUtilities.getInt();
+                switch (tipo) {
+                    case 1:
+                        GUIData.ItemToScreen(controlador.listAllByName(name, ProductsTypes.Peliculas));
+                        break;
+                    case 2:
+                        GUIData.ItemToScreen(controlador.listAllByName(name, ProductsTypes.Juegos));
+                        break;
+                    case 3:
+                        GUIData.ItemToScreen(controlador.listAllByName(name, ProductsTypes.Otros));
+                        break;
+                    default:
+                        System.out.println("Elija una opción válida, gracias");
+                }
+            case 6:
+                UIUtilities.clearScreen();
+                System.out.println("Elija el estado de los productos a mostrar");
+                System.out.println("1.- Reservados");
+                System.out.println("2.- Sin reserva");
+                System.out.println("3.- Eliminados");
+                tipo = UIUtilities.getInt();
+                switch (tipo) {
+                    case 1:
+                        GUIData.ItemToScreen(controlador.listAllByStatus(Product.Status.RESERVED));
+                        break;
+                    case 2:
+                        GUIData.ItemToScreen(controlador.listAllByStatus(Product.Status.AVAILABLE));
+                        break;
+                    case 3:
+                        GUIData.ItemToScreen(controlador.listAllByStatus(Product.Status.REMOVED));
+                        break;
+                    default:
+                        System.out.println("Elija una opción válida, gracias");
+                }
+            case 7:
+                UIUtilities.clearScreen();
+                System.out.println("1.- Listar todos los productos distintos");                
+                System.out.println("2.- Listar todos los juegos distintos");                
+                System.out.println("3.- Listar todos los peliculas distintos");
+                tipo = UIUtilities.getInt();
+                switch(tipo){
+                    case 1:
+                        GUIData.ItemToScreen(controlador.listAllDifferentProducts());
+                        break;
+                    case 2:
+                        GUIData.ItemToScreen(controlador.listAllDifferentGames());
+                        break;
+                    case 3:
+                        GUIData.ItemToScreen(controlador.listAllDifferentMovies());
+                        break;
+                    default:
+                        System.out.println("Elija una opción válida, gracias");
+                }
+            case 8:
+                UIUtilities.clearScreen();
+                System.out.println("1.- Todos los productos con el mismo nombre");
+                System.out.println("2.- Todos los productos con el mismo nombre y tipo");
+                tipo = UIUtilities.getInt();
+                switch(tipo){
+                    case 1:
+                        name = UIUtilities.getString("Dime el nombre a buscar");
+                        GUIData.ItemToScreen(controlador.listAllAmountOfProducts(name));
+                        break;
+                    case 2:
+                        name = UIUtilities.getString("Dime el nombre a buscar");
+                        System.out.println("1.- Peliculas");
+                        System.out.println("2.- Juegos");
+                        System.out.println("3.- Otros");
+                        tipo = UIUtilities.getInt();
+                        switch(tipo){
+                            case 1:
+                                GUIData.ItemToScreen(controlador.listAllAmountOfProducts(ProductsTypes.Peliculas, name));
+                                break;
+                            case 2:
+                                GUIData.ItemToScreen(controlador.listAllAmountOfProducts(ProductsTypes.Juegos, name));
+                                break;
+                            case 3:
+                                GUIData.ItemToScreen(controlador.listAllAmountOfProducts(ProductsTypes.Otros, name));
+                                break;
+                            default:
+                                System.out.println("Elija una opción correcta, gracias");
+                        }                        
+                        break;
+                }
+            case 9:
+                break;
+            default:
+                System.out.println("opcion erronea, vuelva a intentarlo");
+
+        }
+
+    }
 
     public static void eliminarproducto() {
         int opt;
@@ -400,7 +558,6 @@ public class GUI {
                     }
 
                 default:
-                    
 
             }
         } while (opt < 1 || opt > 4);
@@ -441,4 +598,4 @@ public class GUI {
 
     }
 
-}   
+}

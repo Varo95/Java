@@ -9,6 +9,7 @@ import io.VideoClub.Model.IClient;
 import io.VideoClub.Model.Product;
 import io.VideoClub.Model.Reservation;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,4 +33,4 @@ public class GUIData {
             GUIReservation.Show(reservation);
         });
     }
-}
+   }
