@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author ANDREA
  */
-public class Movie extends Product implements Cloneable {
+public class Movie extends Product implements Cloneable, Comparable<Item>{
 
     private MovieCategory category;
     private int minAge;
@@ -86,8 +86,6 @@ public class Movie extends Product implements Cloneable {
         return "Movie{" + "category=" + category + ", minAge=" + minAge + '}';
     }
 
-
-
     @Override
     public int hashCode() {
         int hash = 3;
@@ -115,11 +113,21 @@ public class Movie extends Product implements Cloneable {
         return true;
     }
 
-    
-    
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-    
+
+    @Override
+    public int compareTo(Item o) {
+
+        if (o == this) {
+            return 0;
+        }
+        if (o instanceof Movie) {
+            return ((Movie) o).getKey().compareTo(this.getKey());
+        }
+        return -1;
+    }
+
 }

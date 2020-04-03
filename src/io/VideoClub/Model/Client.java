@@ -13,7 +13,7 @@ import java.util.UUID;
  *
  * @author Alvaro
  */
-public class Client implements IClient {
+public class Client implements IClient{
 
     private String ID;
     private String name;
@@ -102,13 +102,14 @@ public class Client implements IClient {
         return true;
     }
 
-    public int compareTo(IClient o){
-        return this.getID().compareTo(o.getID());
-    }
-
     @Override
     public String toString() {
         return "iD=" + ID + " name=" + name + " phone=" + phone + " fecha de registro=" + time.getYear() + "/" + time.getMonthValue() + "/" + time.getDayOfMonth();
+    }
+
+    @Override
+    public int compareTo(IClient o) {
+        return this.getID().compareTo(o.getID());
     }
 
 }

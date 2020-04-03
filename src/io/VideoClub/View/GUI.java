@@ -100,7 +100,7 @@ public class GUI {
             optionGP = UIUtilities.getInt();
             switch (optionGP) {
                 case 1:
-                    anyadirProducto();
+                    dardealtaproduct();
                     break;
                 case 2:
                     listProduct();

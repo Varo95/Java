@@ -51,6 +51,7 @@ public class RepositorioClient extends HashSet<Client> {
         return instance;
     
     }
+        
      @Override
     public String toString() {
         String result= "-----REPOSITORIO-----\n";
@@ -136,6 +137,4 @@ public class RepositorioClient extends HashSet<Client> {
     
     }
     
-    
-            
 }

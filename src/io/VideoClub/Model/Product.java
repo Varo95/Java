@@ -8,17 +8,7 @@ package io.VideoClub.Model;
 import io.VideoClub.Model.Enums.ProductsTypes;
 import java.util.UUID;
 
-public abstract class Product extends Item implements Cloneable {
-
-    public int compareTo(Object o) {
-        if (o == this) {
-            return 0;
-        }
-        if (o instanceof Product) {
-            return ((Product) o).getKey().compareTo(this.getKey());
-        }
-        return -1;
-    }
+public abstract class Product extends Item implements Cloneable, Comparable<Item>{
 
     public enum Status {
         AVAILABLE,
