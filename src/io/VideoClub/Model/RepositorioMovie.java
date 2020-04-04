@@ -14,8 +14,11 @@ import java.util.List;
  * @author ANDREA
  */
 public class RepositorioMovie extends HashSet<Movie> {
-    private static RepositorioMovie instance;
-    private RepositorioMovie(){};
+    private static RepositorioMovie instance=null;
+    List<Movie> movies;
+    private RepositorioMovie(){
+        movies = new ArrayList<>();
+    };
     
     public static RepositorioMovie getInstance(){
         if(instance==null){

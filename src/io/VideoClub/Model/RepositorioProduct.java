@@ -14,8 +14,11 @@ import java.util.List;
  * @author ANDREA
  */
 public class RepositorioProduct extends HashSet<Product> {
-    private static RepositorioProduct instance;
-    private RepositorioProduct(){};
+    private static RepositorioProduct instance=null;
+    List<Product> porducts;
+    private RepositorioProduct(){
+        porducts = new ArrayList<>();
+    };
     
     public static RepositorioProduct getInstance(){
         if(instance==null){

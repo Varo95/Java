@@ -14,8 +14,11 @@ import java.util.List;
  * @author ANDREA
  */
 public class RepositorioGame extends HashSet<Game> {
-    private static RepositorioGame instance;
-    private RepositorioGame(){};
+    private static RepositorioGame instance = null;
+    List<Game> games;
+    private RepositorioGame(){
+        games=new ArrayList<>();
+    };
     
     public static RepositorioGame getInstance(){
         if(instance==null){

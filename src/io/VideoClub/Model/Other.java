@@ -11,7 +11,7 @@ import io.VideoClub.Model.Enums.ProductsTypes;
  *
  * @author FRANCISCO MARTÍN
  */
-public class Other extends Product implements Cloneable, Comparable<Item> {
+public class Other extends Product implements Cloneable{
 
     public Other(String name, String description, double prize, Status status) {
         super(name, description, prize, status, ProductsTypes.Otros);
@@ -82,7 +82,7 @@ public class Other extends Product implements Cloneable, Comparable<Item> {
     }
 
     @Override
-    public int compareTo(Item o) {
+    public int compareTo(Product o) {
 
         if (o == this) {
             return 0;

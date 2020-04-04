@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author ANDREA
  */
-public class Game extends Product implements Cloneable, Comparable<Item>{
+public class Game extends Product implements Cloneable{
 
  
     private GameCategory category;
@@ -124,7 +124,7 @@ public class Game extends Product implements Cloneable, Comparable<Item>{
     }
 
      @Override
-    public int compareTo(Item o) {
+    public int compareTo(Product o) {
 
         if (o == this) {
             return 0;

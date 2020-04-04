@@ -14,8 +14,11 @@ import java.util.List;
  * @author ANDREA
  */
 public class RepositorioReservation extends HashSet<Reservation> {
-     private static RepositorioReservation instance;
-    private RepositorioReservation(){};
+     private static RepositorioReservation instance=null;
+     List<Reservation> reservations;
+    private RepositorioReservation(){
+        reservations = new ArrayList<>();
+    };
     
     public static RepositorioReservation getInstance(){
         if(instance==null){

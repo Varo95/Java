@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author ANDREA
  */
-public class Movie extends Product implements Cloneable, Comparable<Item>{
+public class Movie extends Product implements Cloneable{
 
     private MovieCategory category;
     private int minAge;
@@ -119,7 +119,7 @@ public class Movie extends Product implements Cloneable, Comparable<Item>{
     }
 
     @Override
-    public int compareTo(Item o) {
+    public int compareTo(Product o) {
 
         if (o == this) {
             return 0;

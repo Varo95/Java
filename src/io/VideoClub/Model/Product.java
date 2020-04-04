@@ -8,8 +8,9 @@ package io.VideoClub.Model;
 import io.VideoClub.Model.Enums.ProductsTypes;
 import java.util.UUID;
 
-public abstract class Product extends Item implements Cloneable, Comparable<Item>{
+public abstract class Product extends Item implements Cloneable, Comparable<Product>{
 
+    
     public enum Status {
         AVAILABLE,
         RESERVED,

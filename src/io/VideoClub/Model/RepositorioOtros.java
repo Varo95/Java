@@ -14,8 +14,11 @@ import java.util.List;
  * @author ANDREA
  */
 public class RepositorioOtros extends HashSet<Other> {
-    private static RepositorioOtros instance;
-    private RepositorioOtros(){};
+    private static RepositorioOtros instance=null;
+    List<Other> others;
+    private RepositorioOtros(){
+        others = new ArrayList<>();
+    };
     
     public static RepositorioOtros getInstance(){
         if(instance==null){
