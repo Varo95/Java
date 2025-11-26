@@ -1,3 +1,7 @@
-/src/Proyecto2Eval/nbproject/private/
-/nbproject/private/
-/build/
+.idea/
+out/
+.DS_Store
+catalog.dat
+clients.dat
+reservations.dat
+Videoclub.iml
